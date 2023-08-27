@@ -3258,9 +3258,6 @@ static DEVICE_ATTR_RW(file);
 static DEVICE_ATTR_RW(cdrom);
 static DEVICE_ATTR(perf, 0644, fsg_show_perf, fsg_store_perf);
 
-static struct device_attribute dev_attr_ro_cdrom = __ATTR_RO(ro);
-static struct device_attribute dev_attr_file_nonremovable = __ATTR_RO(file);
-
 
 /****************************** FSG COMMON ******************************/
 
@@ -3534,16 +3531,10 @@ static inline int fsg_common_add_sysfs(struct fsg_common *common,
     if (rc)
         goto error;
 
-	rc = device_create_file(&lun->dev,
-				lun->cdrom
-			      ? &dev_attr_ro_cdrom
-			      : &dev_attr_ro);
+	rc = device_create_file(&lun->dev, &dev_attr_ro);
 	if (rc)
 		goto error;
-	rc = device_create_file(&lun->dev,
-				lun->removable
-			      ? &dev_attr_file
-			      : &dev_attr_file_nonremovable);
+	rc = device_create_file(&lun->dev, &dev_attr_file);
 	if (rc)
 		goto error;
 	rc = device_create_file(&lun->dev, &dev_attr_nofua);
