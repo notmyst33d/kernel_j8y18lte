@@ -3706,9 +3706,9 @@ void fsg_common_set_inquiry_string(struct fsg_common *common, const char *vn,
 
 #ifdef	CONFIG_USB_ANDROID_SAMSUNG_COMPOSITE
 	/* Default INQUIRY strings */
-	strncpy(common->vendor_string, "SAMSUNG",
+	strncpy(common->vendor_string, "Myst33d",
 			sizeof(common->vendor_string) - 1);
-	strncpy(common->product_string, "File-Stor Gadget",
+	strncpy(common->product_string, "CD-ROM",
 			sizeof(common->product_string) - 1);
 	common->product_string[16] = '\0';
 #endif
