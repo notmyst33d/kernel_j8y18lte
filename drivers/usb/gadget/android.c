@@ -64,11 +64,7 @@
 #include "u_ctrl_hsic.c"
 #include "u_data_hsic.c"
 #include "f_ccid.c"
-#ifdef CONFIG_USB_ANDROID_SAMSUNG_MTP
-#include "f_mtp_samsung.c"
-#else
 #include "f_mtp.c"
-#endif
 #include "f_accessory.c"
 #ifndef CONFIG_USB_ANDROID_SAMSUNG_COMPOSITE
 #include "f_charger.c"
